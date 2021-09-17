@@ -78,6 +78,7 @@ CHIP Or {
 }
 ```
 
+<img src = "https://github.com/stereomp3/co110a/blob/master/homework/week01/picture/Or%E9%96%98.png" alt = error>
 
 ## 4. Xor
 
@@ -106,6 +107,8 @@ CHIP Xor {
 }
 ```
 
+<img src = "https://github.com/stereomp3/co110a/blob/master/homework/week01/picture/Xor%E9%96%98.png" alt = error>
+
 ## 5. Mux
 
 ```js
@@ -133,6 +136,11 @@ CHIP Mux {
 }
 ```
 
+* sel = 0
+<img src = "https://github.com/stereomp3/co110a/blob/master/homework/week01/picture/Mux_sel0.png" alt = error>
+
+* sel = 1
+<img src = "https://github.com/stereomp3/co110a/blob/master/homework/week01/picture/Mux_sel1.png" alt = error>
 
 ## 6. DMux
 
@@ -159,3 +167,5 @@ CHIP DMux {
     And(a = in, b = sel, out = b);
 }
 ```
+
+<img src = "https://github.com/stereomp3/co110a/blob/master/homework/week01/picture/DMux%E9%96%98.png" alt = error>
