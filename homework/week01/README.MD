@@ -23,7 +23,7 @@ CHIP Not {
     Nand(a = in, b = in, out = out);
 }
 ```
-
+<img src = "https://github.com/stereomp3/co110a/blob/master/homework/week01/picture/Not%E9%96%98.png" alt = error>
 
 ## 2. And
 
@@ -50,6 +50,7 @@ CHIP And {
 }
 ```
 
+<img src = "https://github.com/stereomp3/co110a/blob/master/homework/week01/picture/And%E9%96%98.png" alt = error>
 
 ## 3. Or
 
