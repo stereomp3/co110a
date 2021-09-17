@@ -1,7 +1,7 @@
 # 製作 || Not || And || Or || Xor || Mux || DMux ||
 
 
-1. Not
+## 1. Not
 
 ```js
 // This file is part of www.nand2tetris.org
@@ -25,9 +25,9 @@ CHIP Not {
 ```
 
 
-2. And
+## 2. And
 
-```
+```js
 // This file is part of www.nand2tetris.org
 // and the book "The Elements of Computing Systems"
 // by Nisan and Schocken, MIT Press.
@@ -51,9 +51,9 @@ CHIP And {
 ```
 
 
-3. Or
+## 3. Or
 
-```
+```js
 // This file is part of www.nand2tetris.org
 // and the book "The Elements of Computing Systems"
 // by Nisan and Schocken, MIT Press.
@@ -78,9 +78,9 @@ CHIP Or {
 ```
 
 
-4. Xor
+## 4. Xor
 
-```
+```js
 // This file is part of www.nand2tetris.org
 // and the book "The Elements of Computing Systems"
 // by Nisan and Schocken, MIT Press.
@@ -105,9 +105,9 @@ CHIP Xor {
 }
 ```
 
-5. Mux
+## 5. Mux
 
-```
+```js
 // This file is part of www.nand2tetris.org
 // and the book "The Elements of Computing Systems"
 // by Nisan and Schocken, MIT Press.
@@ -133,9 +133,9 @@ CHIP Mux {
 ```
 
 
-6. DMux
+## 6. DMux
 
-```
+```js
 // This file is part of www.nand2tetris.org
 // and the book "The Elements of Computing Systems"
 // by Nisan and Schocken, MIT Press.
