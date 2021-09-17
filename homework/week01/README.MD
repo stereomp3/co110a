@@ -1,9 +1,9 @@
-# 製作 Not|And|Or|Xor|Mux|DMux
+# 製作 || Not || And || Or || Xor || Mux || DMux ||
 
 
 1. Not
 
-"""js
+```js
 // This file is part of www.nand2tetris.org
 // and the book "The Elements of Computing Systems"
 // by Nisan and Schocken, MIT Press.
@@ -22,12 +22,12 @@ CHIP Not {
     // Put your code here:
     Nand(a = in, b = in, out = out);
 }
-"""
+```
 
 
-1. And
+2. And
 
-"""
+```
 // This file is part of www.nand2tetris.org
 // and the book "The Elements of Computing Systems"
 // by Nisan and Schocken, MIT Press.
@@ -48,12 +48,12 @@ CHIP And {
     Nand(a = a, b = b, out = nab);
     Not(in = nab, out = out);
 }
-"""
+```
 
 
-1. Or
+3. Or
 
-"""
+```
 // This file is part of www.nand2tetris.org
 // and the book "The Elements of Computing Systems"
 // by Nisan and Schocken, MIT Press.
@@ -75,12 +75,12 @@ CHIP Or {
     Not(in = b, out = nb);
     Nand(a = na, b = nb, out = out);
 }
-"""
+```
 
 
-1. Xor
+4. Xor
 
-"""
+```
 // This file is part of www.nand2tetris.org
 // and the book "The Elements of Computing Systems"
 // by Nisan and Schocken, MIT Press.
@@ -103,11 +103,11 @@ CHIP Xor {
 	And(a = a, b = nb, out = anb);
 	Or(a = nab, b = anb, out = out);
 }
-"""
+```
 
-1. Mux
+5. Mux
 
-"""
+```
 // This file is part of www.nand2tetris.org
 // and the book "The Elements of Computing Systems"
 // by Nisan and Schocken, MIT Press.
@@ -130,12 +130,12 @@ CHIP Mux {
     And(a = b, b = sel, out = bsel);
     Or(a = asel, b = bsel, out=out);
 }
-"""
+```
 
 
-1. DMux
+6. DMux
 
-"""
+```
 // This file is part of www.nand2tetris.org
 // and the book "The Elements of Computing Systems"
 // by Nisan and Schocken, MIT Press.
@@ -157,4 +157,4 @@ CHIP DMux {
     And(a = in, b = nsel, out = a);
     And(a = in, b = sel, out = b);
 }
-"""
+```
