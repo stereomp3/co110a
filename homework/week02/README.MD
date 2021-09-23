@@ -3,6 +3,8 @@
 
 ## 1. Not16 
 
+<img src=https://github.com/stereomp3/co110a/blob/master/homework/week02/picture/Not16.png alt=error>
+
 ```js
 |        in        |       out        |
 | 0000000000000000 | 1111111111111111 |
@@ -46,6 +48,8 @@ CHIP Not16 {
 ```
 
 ## 2. And16 
+
+<img src=https://github.com/stereomp3/co110a/blob/master/homework/week02/picture/And16.png alt=error>
 
 ```js
 |        a         |        b         |       out        |
@@ -93,6 +97,8 @@ CHIP And16 {
 
 ## 3. Or16 
 
+<img src=https://github.com/stereomp3/co110a/blob/master/homework/week02/picture/Or16.png alt=error>
+
 ```js
 |        a         |        b         |       out        |
 | 0000000000000000 | 0000000000000000 | 0000000000000000 |
@@ -139,6 +145,8 @@ CHIP Or16 {
 ```
 
 ## 4. Mux16 
+
+<img src=https://github.com/stereomp3/co110a/blob/master/homework/week02/picture/Mux16.png alt=error>
 
 ```js
 |        a         |        b         | sel |       out        |
@@ -188,6 +196,8 @@ CHIP Mux16 {
 
 ## 5. Or8Way 
 
+<img src=https://github.com/stereomp3/co110a/blob/master/homework/week02/picture/Or8Way.png alt=error>
+
 ```js
 |     in     | out |
 |  00000000  |  0  |
@@ -223,6 +233,8 @@ CHIP Or8Way {
 ```
 
 ## 6. Mux4Way16
+
+<img src=https://github.com/stereomp3/co110a/blob/master/homework/week02/picture/Mux4Way16.png alt=error>
 
 ```js
 |        a         |        b         |        c         |        d         | sel  |       out        |
@@ -262,6 +274,8 @@ CHIP Mux4Way16 {
 ```
 
 ## 7. Mux8Way16 
+
+<img src=https://github.com/stereomp3/co110a/blob/master/homework/week02/picture/Mux8Way16.png alt=error>
 
 ```js
 |        a         |        b         |        c         |        d         |        e         |        f         |        g         |        h         |  sel  |       out        |
@@ -312,6 +326,8 @@ CHIP Mux8Way16 {
 
 ## 8. DMux4Way 
 
+<img src=https://github.com/stereomp3/co110a/blob/master/homework/week02/picture/DMux4Way.png alt=error>
+
 ```js
 | in  | sel  |  a  |  b  |  c  |  d  |
 |  0  |  00  |  0  |  0  |  0  |  0  |
@@ -348,6 +364,8 @@ CHIP DMux4Way {
 ```
 
 ## 9. DMux8Way
+
+<img src=https://github.com/stereomp3/co110a/blob/master/homework/week02/picture/DMux8Way.png alt=error>
 
 ```js
 | in  |  sel  |  a  |  b  |  c  |  d  |  e  |  f  |  g  |  h  |
