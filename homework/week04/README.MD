@@ -1,6 +1,6 @@
 # 製作 || ALU ||
 
-<img src = "https://github.com/stereomp3/co110a/blob/master/homework/week04/picture/ALU.png" alt = error>
+<img src = "https://github.com/stereomp3/co110a/blob/master/homework/week04/picture/ALU.jpg" alt = error>
 
 ```js
 |        x         |        y         |zx |nx |zy |ny | f |no |       out        |zr |ng |
