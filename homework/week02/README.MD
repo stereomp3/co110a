@@ -413,8 +413,9 @@ CHIP DMux8Way{
 
 ## 迪摩根定二定理證明
 
-<img src=https://github.com/stereomp3/co110a/blob/master/homework/week02/picture/%E4%B8%83%E6%AE%B5%E9%A1%AF%E7%A4%BA%E5%99%A8.png alt=error>
+<img src=https://github.com/stereomp3/co110a/blob/master/homework/week02/picture/%E8%BF%AA%E6%91%A9%E6%A0%B9%E5%AE%9A%E5%BE%8B%E7%AC%AC%E4%BA%8C%E6%A2%9D.png alt=error>
+
 
 ## 七段顯示器顯示(41%7=6:g)
 
-<img src=https://github.com/stereomp3/co110a/blob/master/homework/week02/picture/%E8%BF%AA%E6%91%A9%E6%A0%B9%E5%AE%9A%E5%BE%8B%E7%AC%AC%E4%BA%8C%E6%A2%9D.png alt=error>
+<img src=https://github.com/stereomp3/co110a/blob/master/homework/week02/picture/%E4%B8%83%E6%AE%B5%E9%A1%AF%E7%A4%BA%E5%99%A8.png alt=error>
