@@ -3,7 +3,7 @@
 
 ## 1. Bit 
 
-<img src=https://github.com/stereomp3/co110a/blob/master/homework/week02/picture/Bit.jpg alt=error>
+<img src=https://github.com/stereomp3/co110a/blob/master/homework/week05/picture/Bit.jpg alt=error>
 
 
 ```js
@@ -31,7 +31,7 @@ CHIP Bit {
 
 ## 2. Register
 
-<img src=https://github.com/stereomp3/co110a/blob/master/homework/week02/picture/Register.png alt=error>
+<img src=https://github.com/stereomp3/co110a/blob/master/homework/week05/picture/Register.png alt=error>
 
 ```js
 // This file is part of www.nand2tetris.org
@@ -68,7 +68,7 @@ CHIP RAM8 {
 
 ## 3. RAM8 
 
-<img src=https://github.com/stereomp3/co110a/blob/master/homework/week02/picture/RAM.png alt=error>
+<img src=https://github.com/stereomp3/co110a/blob/master/homework/week05/picture/RAM.png alt=error>
 
 ```js
 // This file is part of www.nand2tetris.org
