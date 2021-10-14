@@ -1,0 +1,104 @@
+# 製作 || Bit || Register || RAM8
+
+
+## 1. Bit 
+
+<img src=https://github.com/stereomp3/co110a/blob/master/homework/week02/picture/Bit.jpg alt=error>
+
+
+```js
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/03/a/Bit.hdl
+
+/**
+ * 1-bit register:
+ * If load[t] == 1 then out[t+1] = in[t]
+ *                 else out does not change (out[t+1] = out[t])
+ */
+
+CHIP Bit {
+    IN in, load;
+    OUT out;
+
+    PARTS:
+    // Put your code here:
+    Mux(a = self, b = in, sel = load, out = temp);
+    DFF(in = temp, out = self, out = out );
+}
+```
+
+## 2. Register
+
+<img src=https://github.com/stereomp3/co110a/blob/master/homework/week02/picture/Register.png alt=error>
+
+```js
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/03/a/RAM8.hdl
+
+/**
+ * Memory of 8 registers, each 16 bit-wide. Out holds the value
+ * stored at the memory location specified by address. If load==1, then 
+ * the in value is loaded into the memory location specified by address 
+ * (the loaded value will be emitted to out from the next time step onward).
+ */
+
+CHIP RAM8 {
+    IN in[16], load, address[3];
+    OUT out[16];
+
+    PARTS:
+    // Put your code here:
+    DMux8Way(in = load, sel = address, a = r1, b = r2, c = r3, d = r4, e = r5, f = r6, g = r7, h = r8);
+    Register(in = in, load = r1, out = ro1); 
+    Register(in = in, load = r2, out = ro2);
+    Register(in = in, load = r3, out = ro3);
+    Register(in = in, load = r4, out = ro4); 
+    Register(in = in, load = r5, out = ro5);
+    Register(in = in, load = r6, out = ro6);
+    Register(in = in, load = r7, out = ro7);
+    Register(in = in, load = r8, out = ro8);
+    Mux8Way16(a = ro1, b = ro2, c = ro3, d = ro4, e = ro5, f = ro6, g = ro7, h = ro8, sel = address, out = out);
+    
+}
+```
+
+## 3. RAM8 
+
+<img src=https://github.com/stereomp3/co110a/blob/master/homework/week02/picture/RAM.png alt=error>
+
+```js
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/03/a/RAM64.hdl
+
+/**
+ * Memory of 64 registers, each 16 bit-wide. Out holds the value
+ * stored at the memory location specified by address. If load==1, then 
+ * the in value is loaded into the memory location specified by address 
+ * (the loaded value will be emitted to out from the next time step onward).
+ */
+
+CHIP RAM64 {
+    IN in[16], load, address[6];
+    OUT out[16];
+
+    PARTS:
+    // Put your code here:
+    DMux8Way(in = load, sel = address[0..2], a = r1, b = r2, c = r3, d = r4, e = r5, f = r6, g = r7, h = r8);
+    RAM8(in = in, load = r1, address = address[3..5], out = ro1); 
+    RAM8(in = in, load = r2, address = address[3..5], out = ro2);
+    RAM8(in = in, load = r3, address = address[3..5], out = ro3);
+    RAM8(in = in, load = r4, address = address[3..5], out = ro4); 
+    RAM8(in = in, load = r5, address = address[3..5], out = ro5);
+    RAM8(in = in, load = r6, address = address[3..5], out = ro6);
+    RAM8(in = in, load = r7, address = address[3..5], out = ro7);
+    RAM8(in = in, load = r8, address = address[3..5], out = ro8);
+    Mux8Way16(a = ro1, b = ro2, c = ro3, d = ro4, e = ro5, f = ro6, g = ro7, h = ro8, sel = address[0..2], out = out);
+}
+```
+
