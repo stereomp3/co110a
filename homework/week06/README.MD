@@ -1,9 +1,9 @@
 # 製作 || RAM64 || RAM512 || RAM4K || RAM16K || PC
 
 
-> RAM系列用8個組成他的下一個，原理就是以下這張圖
+> RAM系列用8個組成他的下一個(RAM64*8=RAM512)，原理就是以下這張圖
 
-<img src=https://github.com/stereomp3/co110a/blob/master/homework/week05/picture/RAM.png alt=error>
+![RAM](../week05/picture/RAM.png)
 
 ## 1. RAM64 
 
@@ -142,7 +142,7 @@ CHIP RAM16K {
 
 ## 5. PC
 
-<img src=https://github.com/stereomp3/co110a/blob/master/homework/week06/picture/PC.png alt=error>
+![PC](picture/PC.png)
 
 
 ```js
