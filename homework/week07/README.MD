@@ -1,7 +1,7 @@
 # 組合語言
 
 ![fill01](./picture/asm_fill01.png)
-![fill02](./picture/asm_fill01.png)
+![fill02](./picture/asm_fill02.png)
 
 ## fill
 
