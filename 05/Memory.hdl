@@ -28,4 +28,21 @@ CHIP Memory {
 
     PARTS:
     // Put your code here:
+
+    // 2的14次方(16384)以下都歸RAM管理(0~13 bit)，第15個位元 == 0
+    Not(in = address[14], out = RAM16);
+
+    // screen管理 2**14(16384) ~ 2**15(24575)
+    And(a = address[14], b = load, out = screenLOAD);
+
+    And(a = RAM16, b = load, out = RAMLOAD);
+
+    RAM16K(in = in, address = address[0..13], load = RAMLOAD, out = R);
+    Screen(in = in, address = address[0..12], load = screenLOAD, out = S);
+
+    // 讀取24576可以知道按鍵位置(ASCLL)
+    Keyboard(out = kout);
+
+    Mux16(a = S, b = kout, sel = address[13], out = if1);
+    Mux16(a = R, b = if1, sel = address[14], out = out);
 }

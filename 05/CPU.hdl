@@ -39,5 +39,40 @@ CHIP CPU {
         pc[15];          // address of next instruction
 
     PARTS:
-    // Put your code here:
+
+    // 把INput 改成比較好看  // Decoder
+    And16(a=true, b=instruction, out[15]=isC, // isC判斷是A指令(0)還是C指令(1)
+         out[12]=a, out[11]=c1, out[10]=c2, out[9]=c3, out[8]=c4, out[7]=c5, out[6]=c6, 
+         out[5]=d1, out[4]=d2, out[3]=d3, out[2]=j1, out[1]=j2, out[0]=j3);
+
+    Mux16(a=instruction, b=back, sel=isC, out=if1);  // 判斷是否要讀進A Register 
+    Mux16(a=Aout, b=inM, sel=a, out=if2);
+
+    // A register
+    Not(in=isC, out=isA);             // 判斷否是為A指令(0)
+    And(a=isC, b=d1, out=AluToA);     // 如果是C指令(1)，是否需要儲存A資料
+    Or(a=isA, b=AluToA, out=Aload);   // 滿足上面條件load = 1 (存入ARgister)
+    ARegister(in=if1, load=Aload, out=Aout, out[0..14]=addressM);
+
+    // D register
+    And(a=isC, b=d2, out=Dload);   // C指令且 instruction[4] == 1
+    DRegister(in=back, load=Dload, out=Dout);  // Dload = isC & d2
+    
+    // ALU
+    ALU(x=Dout, y=if2, zx=c1, nx=c2, zy=c3, ny=c4, f=c5, no=c6, out=back, out=outM, zr=zr, ng=ng);
+
+    // JUMP condition
+    // gt 判斷 > 、 ng 判斷 <、 zr 判斷 ==
+    Or(a=ng, b=zr, out=ngzr);
+    Not(in=ngzr, out=gt);  // greater                 
+    And(a=ng, b=j1, out=passL);       // passL --> 滿足小於
+    And(a=zr, b=j2, out=passE);       // passE --> 滿足等於
+    And(a=gt, b=j3, out=passG);       // passG --> 滿足大於
+    Or(a=passL, b=passE, out=passLE);
+    Or(a=passLE, b=passG, out=pass);   // 只要其中一個條件滿足就可以通過
+    And(a=isC, b=pass, out=PCload);   // PCload(跳行的條件) = 是C指令以及滿足上面條件才可跳
+    PC(in=Aout, load=PCload, inc=true, reset=reset, out[0..14]=pc);
+
+    // output
+    And(a=isC, b=d3, out=writeM);         // writeM = isC & d3
 }
