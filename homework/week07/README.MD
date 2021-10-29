@@ -1,95 +1,79 @@
-# 製作 CPU
+# 組合語言
 
 
-> CPU輸入(16bits)
-
-![instruction](../week07/picture/instruction.png)
-
-> CPU結構
-
-![CPU](../week07/picture/CPU.jpg)
-
-
-## 1. CPU
-
-
+## fill
 ```js
 // This file is part of www.nand2tetris.org
 // and the book "The Elements of Computing Systems"
 // by Nisan and Schocken, MIT Press.
-// File name: projects/05/CPU.hdl
+// File name: projects/04/Fill.asm
 
-/**
- * The Hack CPU (Central Processing unit), consisting of an ALU,
- * two registers named A and D, and a program counter named PC.
- * The CPU is designed to fetch and execute instructions written in 
- * the Hack machine language. In particular, functions as follows:
- * Executes the inputted instruction according to the Hack machine 
- * language specification. The D and A in the language specification
- * refer to CPU-resident registers, while M refers to the external
- * memory location addressed by A, i.e. to Memory[A]. The inM input 
- * holds the value of this location. If the current instruction needs 
- * to write a value to M, the value is placed in outM, the address 
- * of the target location is placed in the addressM output, and the 
- * writeM control bit is asserted. (When writeM==0, any value may 
- * appear in outM). The outM and writeM outputs are combinational: 
- * they are affected instantaneously by the execution of the current 
- * instruction. The addressM and pc outputs are clocked: although they 
- * are affected by the execution of the current instruction, they commit 
- * to their new values only in the next time step. If reset==1 then the 
- * CPU jumps to address 0 (i.e. pc is set to 0 in next time step) rather 
- * than to the address resulting from executing the current instruction. 
- */
+// Runs an infinite loop that listens to the keyboard input.
+// When a key is pressed (any key), the program blackens the screen,
+// i.e. writes "black" in every pixel;
+// the screen should remain fully black as long as the key is pressed. 
+// When no key is pressed, the program clears the screen, i.e. writes
+// "white" in every pixel;
+// the screen should remain fully clear as long as no key is pressed.
 
-CHIP CPU {
+// Put your code here.
+@16384
+D=A
+A=D
+D=D+1
+M=-1
+@2
+0;JMP
 
-    IN  inM[16],         // M value input  (M = contents of RAM[A])
-        instruction[16], // Instruction for execution
-        reset;           // Signals whether to re-start the current
-                         // program (reset==1) or continue executing
-                         // the current program (reset==0).
+// here
 
-    OUT outM[16],        // M value output
-        writeM,          // Write to M? 
-        addressM[15],    // Address in data memory (of M)
-        pc[15];          // address of next instruction
+// 偵測鍵盤位置有沒有輸入
+0.  @24576  // keyboard
+1.  D=M     // 把memory 24576的值取出
+2.  @0
+3.  D;JEQ   // 如果值為0就返回第一個
 
-    PARTS:
+// 使用變數判斷迴圈到甚麼時候停
+4.  @8192  // 24576-16384 = 8192(把所有螢幕做調整，值會慢慢減，減到0跳出迴圈)
+5.  D=A    // 把值(8192)給 D
+6.  @10    // 把值放到 M 10裡面(@10是跳回的地方(A=D)，順便做判斷)
+7.  M=D
 
-    // 把INput 改成比較好看  // Decoder
-    And16(a=true, b=instruction, out[15]=isC, // isC判斷是A指令(0)還是C指令(1)
-         out[12]=a, out[11]=c1, out[10]=c2, out[9]=c3, out[8]=c4, out[7]=c5, out[6]=c6, 
-         out[5]=d1, out[4]=d2, out[3]=d3, out[2]=j1, out[1]=j2, out[0]=j3);
+// 螢幕變白，開始迴圈
+8.  @16384
+9.  D=A    // 把值(16384)給 D
+10. A=D    // 把值回傳給A (@D)
+11. D=D+1  // 值會一直增加，所以迴圈時，位置也會一直上升
+12. M=-1   // 把 M A 位置的值變 -1(黑色)
 
-    Mux16(a=instruction, b=back, sel=isC, out=if1);  // 判斷是否要讀進A Register 
-    Mux16(a=Aout, b=inM, sel=a, out=if2);
+13. @10    
+14. M=M-1  // M 10 遞減
+15. M;JNE  // 如果 M == 0 就跳出迴圈，else 跳回10的地方做迴圈
 
-    // A register
-    Not(in=isC, out=isA);             // 判斷否是為A指令(0)
-    And(a=isC, b=d1, out=AluToA);     // 如果是C指令(1)，是否需要儲存A資料
-    Or(a=isA, b=AluToA, out=Aload);   // 滿足上面條件load = 1 (存入ARgister)
-    ARegister(in=if1, load=Aload, out=Aout, out[0..14]=addressM);
+// 螢幕變黑後，偵測keyboard是否放開(0)
+16. @24576 
+17. D=M    // 24576-16384 = 8192(把所有螢幕做調整，值會慢慢減，減到0跳出迴圈)
+18. @16    // 把值(8192)給 D
+19. D;JNE  // 如果 D == 0 就跳出迴圈，else 跳回16的地方做迴圈
 
-    // D register
-    And(a=isC, b=d2, out=Dload);   // C指令且 instruction[4] == 1
-    DRegister(in=back, load=Dload, out=Dout);  // Dload = isC & d2
-    
-    // ALU
-    ALU(x=Dout, y=if2, zx=c1, nx=c2, zy=c3, ny=c4, f=c5, no=c6, out=back, out=outM, zr=zr, ng=ng);
+// 使用變數判斷迴圈到甚麼時候停，這之後都跟上面(4. ~ 15.)的差不多
+20. @8192  // 把數字存到M裡面
+21. D=A    // 把值(16384)給 D
+22. @25    // 把值放到 M 25裡面(@25是跳回的地方(A=D)，順便做判斷)
+23. M=D
 
-    // JUMP condition
-    // gt 判斷 > 、 ng 判斷 <、 zr 判斷 ==
-    Or(a=ng, b=zr, out=ngzr);
-    Not(in=ngzr, out=gt);  // greater                 
-    And(a=ng, b=j1, out=passL);       // passL --> 滿足小於
-    And(a=zr, b=j2, out=passE);       // passE --> 滿足等於
-    And(a=gt, b=j3, out=passG);       // passG --> 滿足大於
-    Or(a=passL, b=passE, out=passLE);
-    Or(a=passLE, b=passG, out=pass);   // 只要其中一個條件滿足就可以通過
-    And(a=isC, b=pass, out=PCload);   // PCload(跳行的條件) = 是C指令以及滿足上面條件才可跳
-    PC(in=Aout, load=PCload, inc=true, reset=reset, out[0..14]=pc);
+// 螢幕變白，
+24. @16384 // 把值(16384)給 D
+25. D=A    // 把值回傳給A (@D)
+26. A=D    // 把值回傳給A (@D)
+27. D=D+1  // 值會一直增加，所以迴圈時，位置也會一直上升
+28. M=-1   // 把 M A 位置的值變 0(白色)
 
-    // output
-    And(a=isC, b=d3, out=writeM);         // writeM = isC & d3
-}
+29. @25
+30. M=M-1  // M 10 遞減
+31. M;JNE  // 如果 M == 0 就跳出迴圈，else 跳回25的地方做迴圈
+
+// 結束一套，跳回原點
+32. @0
+33. 0;JMP
 ```
