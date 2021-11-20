@@ -14,10 +14,19 @@
  * with the computer via the keyboard.
  */
 
+
 CHIP Computer {
-
     IN reset;
-
+    
     PARTS:
-    // Put your code here:
+    
+    // 從CPU讀取輸入(inM)  // 可以使用keyboard控制memorys
+    Memory(in=inM, load=loadM, address=AM, out=outMemory);
+
+    // inM 讀取 Memory的資料，writeM控制memory是否寫入(instruction[15], instruction[3])
+    // CPU輸出(OutM)到memory裡面，然後再
+    CPU(inM=outMemory, instruction=instruction, reset=reset, outM=inM, writeM=loadM, addressM=AM, pc=nextInstruction);
+
+    // 使用nand2tetris內建ROM，接收收到的指令(nextInstruction，從CPU的CP輸入)
+    ROM32K(address=nextInstruction, out=instruction);
 }

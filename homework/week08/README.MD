@@ -3,11 +3,11 @@
 
 > CPU輸入(16bits)
 
-![instruction](../week07/picture/instruction.png)
+![instruction](./picture/instruction.png)
 
 > CPU結構
 
-![CPU](../week07/picture/CPU.jpg)
+![CPU](./picture/CPU.jpg)
 
 
 ## 1. CPU
