@@ -3,7 +3,7 @@
 
 
 ## 1. Memory
-![Memory](./picture/Memory.jpg)
+![Memory](./picture/Memory.png)
 
 ```js
 // This file is part of www.nand2tetris.org
@@ -59,7 +59,7 @@ CHIP Memory {
 ```
 
 ## 2. Computer 
-![Computer](./picture/Computer.jpg)
+![Computer](./picture/Computer.png)
 
 ```js
 // This file is part of www.nand2tetris.org
