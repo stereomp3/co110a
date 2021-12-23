@@ -1,4 +1,4 @@
-# 製作 CPU
+# 製作 CPU ||
 
 
 > CPU輸入(16bits)

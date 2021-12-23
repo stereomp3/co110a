@@ -1,4 +1,4 @@
-# 製作 || Memory || Computer 
+# 製作 || Memory || Computer ||
 
 
 

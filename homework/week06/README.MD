@@ -1,4 +1,4 @@
-# 製作 || RAM64 || RAM512 || RAM4K || RAM16K || PC
+# 製作 || RAM64 || RAM512 || RAM4K || RAM16K || PC ||
 
 
 > RAM系列用8個組成他的下一個(RAM64*8=RAM512)，原理就是以下這張圖

@@ -1,4 +1,4 @@
-# 製作 || HalfAdder || FullAdder || Adder16 || Inc16 || 
+# 製作 || HalfAdder || FullAdder || Adder16 || Inc16 ||
 
 
 ## 1. HalfAdder

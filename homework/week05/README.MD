@@ -1,4 +1,4 @@
-# 製作 || Bit || Register || RAM8
+# 製作 || Bit || Register || RAM8 ||
 
 
 ## 1. Bit 
