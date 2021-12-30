@@ -1,4 +1,23 @@
+> 所有圖片都是手工繪製，下面是原創以及參考的分類
+
+* 原創
+  * [nand2tetris 第一章 1-6 題](https://github.com/stereomp3/co110a/tree/master/homework/week01) week01
+  * [nand2tetris 第一章 後半](https://github.com/stereomp3/co110a/tree/master/homework/week02) week02
+  * [nand2tetris 第二章 前四題](https://github.com/stereomp3/co110a/tree/master/homework/week03) week03
+  * [nand2tetris 第三章 的 前三題](https://github.com/stereomp3/co110a/tree/master/homework/week05) week05
+  * [nand2tetris 第三章 後半 ](https://github.com/stereomp3/co110a/tree/master/homework/week06)week06
+  * [nand2tetris 第四章 全部](https://github.com/stereomp3/co110a/tree/master/homework/week07) week07
+  * [nand2tetris 第五章 後半](https://github.com/stereomp3/co110a/tree/master/homework/week09) week09
+
+* 參考[nand2tetris的第二章教學投影片](https://drive.google.com/file/d/1ie9s3GjM2TrvL7PrEZJ00gEwezgNLOBm/view)
+  * [nand2tetris 第二章 的 ALU](https://github.com/stereomp3/co110a/tree/master/homework/week04) week04
+
+* 參考 [nand2tetris教學投影片](https://drive.google.com/file/d/1nEptWuRpFF9zmqlKYq6s1UfDB_dd16vx/view) 以及 [老師的網站](https://gitlab.com/ccc110/co/-/blob/master/05/CPU.hdl)
+  * [nand2tetris 第五章 CPU](https://github.com/stereomp3/co110a/tree/master/homework/week08) week08
+
+
 <hr>
+
 
 # 製作 || Not || And || Or || Xor || Mux || DMux || (week01)
 
