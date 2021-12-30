@@ -190,8 +190,8 @@ d2 = -1^S2 * 2^e2 * m2
 ```
 哈佛
 
-				cpu
-	I/O  	Dmem   Imem
+        cpu
+   I/O  Dmem  Imem
 
 逢紐曼
 
