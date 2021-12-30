@@ -190,19 +190,19 @@ d2 = -1^S2 * 2^e2 * m2
 ```
 哈佛
 
-        cpu
-   I/O  Dmem  Imem
+           cpu
+      I/O  Dmem  Imem
 
 逢紐曼
 
-				 cpu
-			I/O    Mem
+           cpu
+      I/O       Mem
 			
 現在電腦
 
-         CPU
-     I/O     Dm
-                Mem
+           CPU
+      I/O      Dm
+                  Mem
 ```
 
 > 接下來下面要講現代電腦常用的加速法
